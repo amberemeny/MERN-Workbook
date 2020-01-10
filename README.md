@@ -1,8 +1,39 @@
 # MERN Workbook
 ## Provide an overview and description of a standard source control process for a large project:
+
 The source control is a category of software tools that provide stability and sustainability when managing source code for any development project. A version control software like Git helps keep track of every modification to the code stored for each project. The reason software like this is important is that if any code is lost, replaced or broken, the developer can review previous code, see specific changes and even roll back the whole project to an earlier saved version.
 
-A standard source control project for a large project is usually started by creating a new, empty repository. On Github, this is done by being logged in, selecting the 
+### Setting up a Repository
+A standard source control project for a large project is usually started by creating a new, empty repository. On Github, this is done by being logged in, selecting the `New` icon next to the `Repositories` title.
+![New Repo](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/newRepo.png)Then, details about the new repository can be added with the option to initialize a `README.md` file upon creation.
+![New Repo Details](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/newRepoDetails.png)Next, after the repo is created, Github will redirect the user to a screen detailing the steps to set up the repository inside the terminal.
+![Setup Repo Github](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/createdRepo.png)Over in the terminal window, create a new folder for the project and enter it. Then, follow the steps in the `...or create a new repository on the command line` section.
+Following these steps will create a README file (if one hasn't already been created) and initialize the project folder as a git repository. Initializing the folder as a repo will direct git to set up the associated files for the source control process including the `.git-ignore` file, which essentially flags any recorded files to *not* be uploaded to the Github repo. This becomes useful when using certain coding languages that include large folders of files that are not necessary to keep stored.
+Now that the project folder is set up to be used with Github, files can now be uploaded to the repo using the relevant commands:
+- `git add "file/s"` or `git add .` : this command adds specified files or all changes in the case of `git add .` to the list of "staged" changes. The staged changes are now ready to be "committed" to the repo, or, if a mistake is made, the changes can be "unstaged" and discarded. 
+- `git commit -m "commit message"` : this command then "commits" the staged changes to the repo with the accompanying message associated with the changes. It is best practice and industry standard to attach a detailed and accurate message with each commit to provide accurate documentation during development.
+- `git push origin master` : this command then "pushes" the changes to the repo that was set up initially, and to the branch in the command. In this case, the changes were pushed to the directory and to the `master` branch. 
+
+### Branches, Pull Requests and Merge
+In most cases developing in even a small team, changes will rarely be pushed directly to the `master` branch. Instead, changes will be pushed to another branch set up specifically to push changes to. For example, a `new style` branch may be set up to change some styling for a website. In the case of a new branch, a user can use the `git checkout -b "branchname"` to create a new branch and begin working in it. From here, a user can still `git add .`, `git commit` and `git push origin "branchname"`. At any time, a user can change working branches by using the `git checkout "branchname"` command.
+	Once changes have been pushed to the new branch and you're ready to send the new code to the `master` branch, you can create a "pull request" from your repository on Github with the `compare & pull request` button.
+![Create Pull Request](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/newBranch.png)This creates a request to "pull" the changes down to assess compatibility with the code already present in the `master` branch. Here you can see if the code is available to be merged. You can also attach relevant information involving the changes made.
+![Pull Request](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/pullRequest.png)Once the pull request is made, the opportunity to merge the code will be presented. Here more information can be added to outline changes and any conflicts in code are outlined. 
+![Merge Request](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/mergePullRequest.png)After the merge request is made, the user will be prompted to safely delete the branch now that all changes are included in the `master` branch. It's not a requirement but it is best practice to only merge with the `master` branch once all work is completed on the new branch.
+![Delete Branch](https://raw.githubusercontent.com/amberemeny/MERN-Workbook/master/images/deleteBranch.png)If at anytime the files in your local project differ from those in the repo, git may ask you to initiate a pull request. This is where any new changes in the online repo are pulled to the local machine. This can be done with the `git pull origin "branchname"` command.
+If a new team member needs to download the files to also work on, this is also the command used.
+### Summary
+In summary, standard source control for a project will involve:
+ - creating a new repo on Github
+ - initializing the local project as a repo
+ - adding changes to staging
+ - committing those staged changes with a detailed message
+ - pushing those changes to the online repo
+In some cases:
+ - creating a new branch for new feature/style development
+ - once work has been completed on that branch, creating a pull request to merge files with the master branch
+ - deleting the working branch after changes have been merged
+	
 
 ## What are the most important aspects of quality software?
 ISO 9126 is an international standard developed for the evaluation of software. It outlines six main qualities that contribute to quality evaluation:
