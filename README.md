@@ -100,10 +100,83 @@ In summary, a piece of software including, but not limited to, a web application
 ## Outline a standard high level structure for a MERN stack application and explain the components:
 
 ## A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+As in a job interview, skills needed for a project on a small scale can be divided into two key areas - soft skills and technical skills. Technical skills referring to programming languages, key development concepts and network integration for example, where as soft skills refer to the abilities that are difficult to be measured due to their intangibility, like teamwork and communication skills. To go into more detail, a team developing a website should possess the following knowledge and skills.
+### Soft Skills
+To be effective in developing for a client, technical ability is second to soft skills. If a team cannot work and communicate with one another effectively then the resulting product would be a mess. Necessary soft skills include:
+ - Effective collaboration and communication.
+ - Ability to provide one another constructive feedback.
+ - Able to efficiently distribute roles for development based on individual strength.
+ - Constant contact and liaising with the client based on development methodologies.
+ - Ability to effectively communicate with the client and decipher their needs.
+### Technical Skills
+The technical skills and knowledge necessary for the development of a small business website will vary with the clients needs, but in this case I will use the example of a typical business website needing a homepage, contact page, marketplace, and user management.
+#### Planning
+From the beginning, the team should be implementing a development methodology appropriate for the type of project and deadline. To encourage communication and feedback, implementation of the agile methodology should be encouraged. In accordance with team collaboration and role distribution, project management software such as Trello should also be implemented. Other planning knowledge and skills should include:
+ - Wire framing: to create mock ups for the user interface.
+ - Entity Relation Diagram (ERD) Design: to visualize the database schemas.
+ - Flow Chart Design: to map the user flow of the website.
 
-## With reference to one of your own projects, discuss what knowledge or skills were required to complete your project, and to overcome challenges?
+#### Development
+Development knowledge and skills are going to differ in ways depending on the preference of the team and the clients needs. In this case, I'll use an example of the MERN model. Skills for development include:
+ - Github: or other appropriate source control.
+ - MongoDB: database implementation.
+ - Express.js: network implementation.
+ - React.js: front-end implementation.
+ - Node.js: back-end implementation.
+ - Authentication and Authorization methods: to implement the user login/logout functions and provide security for sensitive information.
+ - Responsive Design: to allow users the same functionality no matter the device used.
+ - Accessible Design: to assist differently-abled users in experiencing the website.
+ - Testing: to ensure the website is functioning as expected and required.
+#### Production
+Once the website has been developed, tested and approved by the client, the team should possess knowledge on deployment methods such as Heroku, Google Firebase or Amazon AWS and how to connect a custom domain through these services. Other helpful knowledge for production would be implementing Google Analytics to help the client monitor user interaction.
 
-## With reference to one of your own projects, evaluate how effective your knowledge and skills were for this project, and suggest changes or improvements for future projects of a similar nature:
+## With reference to one of your own projects, discuss what knowledge or skills were required to complete your project, and to overcome challenges? With reference to one of your own projects, evaluate how effective your knowledge and skills were for this project, and suggest changes or improvements for future projects of a similar nature:
+
+For this example, I will refer to my personal portfolio project completed in Term 2 of the Fast Track Program. The source code for which can be found here: https://github.com/amberemeny/personal-portfolio
+
+This project was completed at a time where knowledge, skills, and experience was very limited as I was new to a lot of concepts that were being taught. My skill repertoire at the time consisted of:
+ - HTML5
+ - CSS/SCSS
+ - Github Source Control
+ - Responsive and Accessible Design
+ - Wireframing
+ - Website Flow Diagrams
+ - Agile Methodology/Project Board Implementation
+ - Heroku/Github Pages Deployment
+
+I had no knowledge of javascript, contact form functionality or any back-end implementation. 
+Though I lacked some skills that I now find essential, I was able to create a mostly functional, responsive website, which was what was required of me for that project. 
+To overcome challenges during development I had to do a lot of learning on my own accord about flexbox styling, using SCSS modularisation and mix-ins, and proper Github CLI commands. 
+
+### Evaluation
+Looking back on the completed project, I feel my knowledge was just barely effective in achieving a functional product. There were many skills that I was missing to improve my work and my productivity, but I feel that most of those skills come with time and experience, which I have more of now. The next time I tackle my personal portfolio, it will be with a clear strategy and final product in mind. For each of the skills I possessed during the project, I feel significant improvement could have been achieved with experience and knowledge: 
+ - HTML5 
+	  * HTML should have been implemented through React.js components to improve responsibility and load time.
+	  * More semantic elements should be used to improve accessibility.
+ - CSS/SCSS
+	 - From the beginning, SCSS should be modularised for each element to improve readability, adaptability and changes in the future.
+	 - Variables should be implemented from the beginning to make changes to color schemes quick and easy.
+ - Github Source Control
+	 - Regular commits should be encouraged with incredibly detailed messages to describe changes. In most instances, each change to a major element or style should be commited, just in case.
+	 - Alternative branches should be implemented to play with layout and style changes.
+ - Responsive and Accessible Design
+	 - More appropriate breakpoints should be implemented to better reflect the most commonly used view ports.
+	 - Better Alt descriptions for images to assist vision impaired users.
+ - Wireframing
+	 - Less styling used in wire framing.
+	 - More layouts created to provide alternate options.
+ - Agile Methodology/Project Board Implementation
+	 - Committing to the use of Trello boards throughout development.
+ - Heroku/Github Pages Deployment
+	 - More advanced knowledge of CLI commands.
+	 - Experience with alternatives to Heroku for deployment.
+	 - Experience with connecting custom domains to deployed websites.
+
+Other changes or improvements:
+ - Implementation of React.js for front-end rendering.
+	 - Heavily modularised React modules to make changes in the future easier.
+ - Knowledge of contact form functionality and proper implementation.
+ - Improved responsiveness using JavaScript for elements where appropriate.
 
 ## Explain control flow, using an example from the JavaScript programming language:
 
