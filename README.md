@@ -98,6 +98,23 @@ In summary, a piece of software including, but not limited to, a web application
  - Developed to be modular and with DRY standards with components that are interchangeable with minimal effort.
 
 ## Outline a standard high level structure for a MERN stack application and explain the components:
+MERN refers to a JavaScript Stack that is used to deploy full-stack web applications and is an acronym for the technologies used in its development: MongoDB, Express, React.js and Node.js. MERN stack components all work together to create an end-to-end framework for developers to create functional web applications with a user interface, networking, database implementation and back-end computing.
+### MongoDB
+MongoDB is a non-relational database where each record is defined as a document containing key-value pairs that resemble JSON objects. MongoDB is known for being flexible, easy to use and scalable. Through other technologies like the Node.js plugin Mongoose - MongoDB allows users to create their own schema. 
+After installation, users can query and modify the database directly and search created collections through the Mongo shell CLI.
+### Express
+Express is a Node.js framework created to make it easier to write back-end code. Instead of writing code from scratch, it assists in the implementation of middle-ware and makes it easy to implement a router. 
+### React.js
+React is a groundbreaking framework based on JavaScript developed by Facebook. It rapidly handles changing data and allows the user to code in JavaScript to create UI elements. React has many features that makes it intuitive and encourages modular code:
+ - JavaScript XML: is a HTML JavaScript extension used in react. It makes writing React components much simpler.
+ - Components: essentially the building blocks of the UI. Each component can be created and designed to be called to the page individually, encouraging code re usability. 
+### Node.js
+Node.js provides a JavaScript environment which allows the user to run code directly on the server outside the browser. There are thousands of free packages known as "node modules" available to assist in application functionality.
+### Summary
+In summary, a MERN application will have:
+ - A back-end developed with Node.js, incorporating Express middle-ware and various Node Module as required by the project.
+ - An implemented MongoDB database with possible schema design developed with Mongoose middle-ware.
+ - A Front-End developed with React.js that is responsive and renders content dynamically to the browser.
 
 ## A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 As in a job interview, skills needed for a project on a small scale can be divided into two key areas - soft skills and technical skills. Technical skills referring to programming languages, key development concepts and network integration for example, where as soft skills refer to the abilities that are difficult to be measured due to their intangibility, like teamwork and communication skills. To go into more detail, a team developing a website should possess the following knowledge and skills.
@@ -192,38 +209,67 @@ Other changes or improvements:
 
 ## For the code snippet provided below, write comments for each line of code to explain its functionality. In your comments you must demonstrates your ability to recognize and identify functions, ranges and classes:
 ```javascript
+// The class "Car" is initiated with a carname that will be passed in as a variable when a new object is created.
 class Car {
   constructor(brand) {
     this.carname = brand;
   }
+
+// This function will return a string that looks like "I have a (carname)".
   present() {
     return 'I have a ' + this.carname;
   }
 }
 
+// The class "Model" inherits the properties and functions of the "Car" class, so now each new object of "Model" will be passed a "brand" and "mod" variable that will be assigned as the carname and model respectively.
 class Model extends Car {
   constructor(brand, mod) {
     super(brand);
     this.model = mod;
   }
+
+// This function returns the string returned by the "present" function in the "Car" class and adds a string that will look like ", it was made in (model)".
   show() {
     return this.present() + ', it was made in ' + this.model;
   }
 }
 
+// Assigns an array of car make names to the "makes" variable.
 let makes = ["Ford", "Holden", "Toyota"]
+//  - An array is created using the Array constructor by passing in a single number.
+//  - Because the number passed in is 40, the array will be 40 elements long with an undefined value for each.
+//  - An array is then created using results mapped from adding each elements position in the array to 1980. 
+//  - The resulting array will be a list of years from 1980-2019, and is assigned to the models variable.
 let models = Array.from(new Array(40), (x,i) => i + 1980)
 
+// This function takes a min and max number as variables.
+// A random number between 0 - 1 and multiplies it by the max-min+1, it then adds the min number to the result and rounds down.
+// This is a standard function that essentially chooses a random interval between the min and max.
 function randomIntFromInterval(min,max) { // min and max included
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+// For each element in models, execute the following code:
 for (model of models) {
 
+// Pass in 0 and the length of the makes array -1 (2) as the min and max to the randomIntFromInterval function. 
+// Find the element in the position of the resulting number inside the makes array.
+// Assign the value (string) of that element to the "make" variable.
   make = makes[randomIntFromInterval(0,makes.length-1)]
+
+// Pass in 0 and the length of the makes array -1 (2) as the min and max to the randomIntFromInterval function. 
+// Find the element in the position of the resulting number inside the modles array.
+// Assign the value (number) of that element to the "model" variable.
   model = models[randomIntFromInterval(0,makes.length-1)]
-    
+
+// Pass in the new values of the make and model variables (should be a string and number) to a new Model class object. 
+// Assign the new object to the mycar variable. 
   mycar = new Model(make, model);
+
+// Then, excecute the function "show" in the Model class, using the newly created mycar object. 
+// The result should be something like "I have a Holden, it was made in 1980".
   console.log(mycar.show())
+
+// Repeat for each element in the models array as per the code.
 }
 ```
