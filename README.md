@@ -196,16 +196,239 @@ Other changes or improvements:
  - Improved responsiveness using JavaScript for elements where appropriate.
 
 ## Explain control flow, using an example from the JavaScript programming language:
+Control flow refers to the order statements are executed or evaluated when a program is running. JavaScript supports what are called *control flow statements* which are used to determine what section of code is run in a program. The following are examples of these statements in JavaScript:
+ - Block Statements: are used to group statements, of which are surrounded by a pair of curly brackets. Block statements are commonly used with control flow statements like `if`, `for` and `while`. 
+ - Conditional statements: are a set of commands that executes if a specified condition is true.
+	 - `if...else`: the if statements will run if the specified condition is true. The optional `else` clause will run if the condition is false. `else if` can also be used to add additional conditions to the sequence.
+```javascript
+// an example of an if...else statement
+let x = 3
+if (x == 4) {
+	statement_1;
+} else if (x =< 2) {
+	statement_2;
+} else {
+	statement_3;
+}
+// in this example, statement_3 will be executed because x does not equal 4, and is not less than or equal to 2.
+```
+ - `switch`: the switch statement allows a program to attempt to match the specified expressions value to a case label. If a match is found, it runs the associated statement. If no match is found, the program looks for the optional `default` label, otherwise, runs the next function after the switch statement.
+	 - `break` statements can be included in each `case` clause to ensure the program breaks out of the `switch` loop after it's executed, otherwise the program continues to run through each `case` statement.
+```javascript
+// an example of a switch statement
+switch (city) {
+	case 'Brisbane':
+		console.log('Brisbane is in Queensland.')
+		break
+	case 'Sydney':
+		console.log('Sydney is in New South Wales.')
+		break
+	case 'Melbourne':
+		console.log('Melbourne is in Victoria.')
+		break
+	default:
+		console.log('Im not sure where ' + city + 'is .')
+}
+console.log('I hope you fouund your city.')
 
+// If I ran the function for switch (Sydney) the console output would look like:
+// Sydney is in New South Wales.
+// I hope you found your city.
+```
+ - `while` is a loop which evaluates a condition before each loop iteration. If the result is false, the loop is finished, otherwise the loop is run again.
+```javascript
+// an example of a while loop.
+let arr = [1, 2, 3, 4, 5]
+while (arr.length > 0) {
+	const elem = arr.shift() // Removes the first element and assigns it to the elem variable.
+	console.log(elem) // Prints the shifted element to the console.
+}
+// Because the statement is essentially removing an element from the array and logging it to the console in each iteration, the console should read a list of the elements, eventually finishing when there are no more left.
+```
 ## Explain type coercion, using examples from the JavaScript programming language:
-
+Type coercion is the process of converting value from one type to another. There are three types of conversion:
+ - to string: the String() function explicitly converts values to a string where as implicit coercion is triggered by the `+` operator, when any addition is a string:
+```javascript
+String(255) // "255"
+255 + "" // "255"
+// Examples of different data types being converted to strings.
+String(true) // "true"
+String(null) // "null"
+String(-1) // "-1"
+```
+ - to boolean: the Boolean() function explicitly converts values to a boolean whereas implicit conversion happens when triggered by logical operators:
+```javascript
+Boolean('') // false
+Boolean(0) // false
+Boolean(null) // false
+// Objects, functions, Arrays, Date and user-defined types are converted to true.
+Boolean([]) // true
+Boolean ({}) // true
+Boolean(function() {}) // true
+```
+ - to number: the Number() function explicitly converts values to a number but implicit conversion is triggered in more cases.
+	 -   comparison operators (`>`, `<`, `<=`,`>=`)
+	-   bitwise operators ( `|` `&` `^` `~`)
+	-   arithmetic operators (`-` `+` `*` `/` `%` ). Note, that binary`+` does not trigger numeric conversion, when any operand is a string.
+	-   unary `+` operator
+	-   loose equality operator `==` (incl. `!=`).  
+    Note that `==` does not trigger numeric conversion when both operands are strings.
+```javascript
+Number(null) // 0
+Number(true) // 1
+Number("50") // 50
+Number("hello") // NaN
+```
 ## Explain data types, using examples from the JavaScript programming language:
-
-## Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language:
+Variables in JavaScript can contain any data. There are seven basic data types:
+ - **Number**: represents both integer and floating point numbers. There are special numeric values such as `Infinity` and `NaN`.
+	 - `Infinity`: represents mathematically infinite numbers.
+	 - `NaN`: represents a computational error and stands for "not a number".
+```javascript
+// Examples of numbers.
+let x = 12
+let y = Infinity
+let z = NaN
+```
+ - **BigInt**: in JavaScript the number type cannot represent integer values larger than 2^53^. So BigInt type was added to represent integers or arbitrary length. It's created by adding "n" to the end of an integer.
+```javascript
+// Example of BigInt.
+let x = 1234567890123456789012345678901234567890n
+```
+ - **String**: a string must be surrounded by quotes. There are 3 types of quotes:
+	 - Double quotes & Single quotes: There are practically no difference between double and single quotes in JavaScript.
+	 - Back-ticks: are quotes that provide extended functionality by allowing us to embed variables and expressions into a string by wrapping them in `${...}`.
+```javascript
+// Examples of strings.
+let name = "Amber"
+console.log( `My name is ${name}!`)
+// Output: My name is Amber!
+```
+ - **Boolean**: this type only has two values - true and false. It can be used to store yes/no values or be the result of a comparison.
+```javascript
+let likeCheese = true // Yes, I like cheese.
+let isLessThan = 1 < 2 // Yes, 1 is less than 2; evaluates to true.
+```
+ - **Null**: the null datatype contains only the "null" value. In JavaScript, it is a special value which represents "nothing", "empty" or "value unknown". It is commonly used to fill variables with an unknown value to be changed later.
 
 ## Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language:
+ - **Objects**: are a more complicated datatype used in JavaScript. They are used to store keyed collections or various data and more complex entities. Objects can be created with curly braces with optional properties consisting of key: value pairs. The key : value pairs in this case is a string referred to as the "property name" and a value that can be any data type.
+```javascript
+// Example of objects.
+let user = {
+	name: "Amber",
+	age: 25,
+	skills: ["Javascript", "HTML", "CSS"],
+}
+// Objects can then be modified using "dot notation".
+user.city = "Brisbane"
+// If I were to want to access information from my object:
+console.log(`My name is ${user.name}. I am ${user.age} and live in ${user.city}. I love to code using ${user.skills[0]}.`
+// This would output: My name is Amber. I am 25 and live in Brisbane. I love to code using Javascript.
+```
+ - a property can be removed using the `delete` operator:
+```javascript
+delete user.name
+```
+- aside from "dot notation", "square bracket notation" can be used to support keys with multiple words:
+```javascript
+user["likes cheese"] = true
+console.log(user["likes cheese"])
+// Output: true
+```
+- using functions, we can create many objects by reusing the same code:
+```javascript
+function createPerson(name, age, location) {
+	return {
+		name: name,
+		age: age,
+		location: location,
+	}
+}
 
+let amber = createPerson("Amber", 25, "Brisbane")
+let bob = createPerson("Bob", 32, "Sydney")
+// To access the created objects.
+console.log(bob.age)
+// Bob's age - Output: 32
+```
+## Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language:
+```javascript
+// Converting arrays to strings - converts an array to a string of values seperated by a comma.
+let people = ["Amber", "Sarah", "Rory"]
+toString(people) // "Amber,Sarah,Rory"
+
+// Join method joins all the array elements into a string but you can specify the separator.
+let people = ["Amber", "Sarah", "Rory"]
+people.join(" / ") // "Amber / Sarah / Rory"
+
+// Pop removes the last element from an array.
+let people = ["Amber", "Sarah", "Rory"]
+people.pop() // people now equals ["Amber", "Sarah"]
+// The popped value can be assigned this way to a variable.
+person = people.pop() // person now equals "Rory"
+
+// Push adds a new element to the end of an array.
+let people = ["Amber", "Sarah", "Rory"]
+people.push("Dan") // people now equals ["Amber", "Sarah", "Rory", "Dan"]
+// assigning this method to a variable returns the length of the new array.
+arrayLength = people.push("Dan") // arrayLength now equals 4
+
+// Shifting is similar to popping but works with the first element instead of the last.
+let people = ["Amber", "Sarah", "Rory"]
+person = people.shift() // Removes "Amber" from the array and assigns it to the person variable.
+
+// The unshift works in the same way but to add an element to the beginning of the array.
+let people = ["Amber", "Sarah", "Rory"]
+arrayLength = people.unshift("Dan") // arrayLength now equals 4 and the array now equals ["Dan", "Amber", "Sarah", "Rory"].
+
+// Array elements can be accessed by their index, starting at 0.
+let people = ["Amber", "Sarah", "Rory"]
+people[1] = "Alex" // The array now equals ["Amber", "Alex", "Rory"]
+
+// Splice can add elements to the array at a given index point. 
+let people = ["Amber", "Sarah", "Rory"]
+// The first parameter is the index at which the elements will be added, and the second is how many elements will be removed. The rest are the new elements.
+people.splice(2, 0, "Alex", "Dan") // The array now equals ["Amber", "Sarah", "Alex", "Dan", "Rory"]
+// This can also be used to remove an element at a specific index.
+let people = ["Amber", "Sarah", "Rory"]
+people.splice(1, 1) // "Sarah" has been removed from the array.
+
+// Concat is a method that creates a new array by merging existing ones.
+let people = ["Amber", "Sarah", "Rory"]
+let students = ["Alex", "Dan"]
+let everyone = people.concat(students) // everyone now equals ["Amber", "Sarah", "Rory", "Alex", "Dan"]
+
+// Slice is a method that slices out a piece of an array to a new one.
+let people = ["Amber", "Sarah", "Rory"]
+// Passing in 2 index points will slice from the first up to the second parameter, not including it.
+let girls = people.slice(0, 2) // girls now equals ["Amber", "Sarah"]
+```
 ## Explain how JSON can be manipulated in JavaScript, using examples from the JavaScript programming language:
+```javascript
+// If you have JSON data in a Javascript file. It is likely to be assignned to a variable as a JSON object or as a string.
+// Example of JSON in a .js file assigned to a variable:
+let data = {
+	"name" : "Amber",
+	"age" : 25,
+	"location" : "Brisbane"
+}
+// Example of JSON in string form in a .js file assigned to a variable:
+let data = '{"name" : "Amber", "age" : 25, "location" : "Brisbane"}'
+
+// A string of data is often used to pass information from a client to a server. To convert data between a string or JSON object, you can use the following methods.
+let data = '{"name" : "Amber", "age" : 25, "location" : "Brisbane"}'
+JSON.parse(data) // Will parse the string as an object.
+
+let data = {
+	"name" : "Amber",
+	"age" : 25,
+	"location" : "Brisbane"
+}
+JSON.stringify(data) // Will parse the data as a string.
+
+// Once the data has been parsed as an object, its properties can be manipulated using dot and square bracket notation as covered in the Object section of the workbook.
+```
 
 ## For the code snippet provided below, write comments for each line of code to explain its functionality. In your comments you must demonstrates your ability to recognize and identify functions, ranges and classes:
 ```javascript
